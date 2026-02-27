@@ -1,0 +1,85 @@
+===============================
+MONGODB QUERIES — BLOG PLATFORM
+===============================
+
+Database Name: blogDB
+
+
+-------------------------------
+USER COLLECTION QUERIES
+-------------------------------
+
+1. Show all users
+db.users.find()
+
+2. Find user by username
+db.users.find({ username: "exampleUser" })
+
+3. Count total users
+db.users.countDocuments()
+
+4. Delete a user
+db.users.deleteOne({ username: "exampleUser" })
+
+
+
+-------------------------------
+POST COLLECTION QUERIES
+-------------------------------
+
+5. Show all posts
+db.posts.find()
+
+6. Show posts sorted by newest first
+db.posts.find().sort({ createdAt: -1 })
+
+7. Find post by title
+db.posts.find({ title: "Sample Title" })
+
+8. Find posts by a specific author
+db.posts.find({ author: ObjectId("AUTHOR_ID_HERE") })
+
+9. Update post content
+db.posts.updateOne(
+  { _id: ObjectId("POST_ID_HERE") },
+  { $set: { content: "Updated content text" } }
+)
+
+10. Delete a post
+db.posts.deleteOne({ _id: ObjectId("POST_ID_HERE") })
+
+11. Count total posts
+db.posts.countDocuments()
+
+
+
+-------------------------------
+AUTH RELATED CHECKS
+-------------------------------
+
+12. Check user credentials (for debugging)
+db.users.find({
+  username: "exampleUser",
+  password: "hashed_password_here"
+})
+
+
+
+-------------------------------
+DATABASE OPERATIONS
+-------------------------------
+
+13. Show all collections
+show collections
+
+14. Drop posts collection
+db.posts.drop()
+
+15. Drop users collection
+db.users.drop()
+
+
+
+===============================
+END OF FILE
+===============================
